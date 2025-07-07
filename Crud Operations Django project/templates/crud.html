@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="{% static '/bst/css/bootstrap.min.css'%}"/>
+</head>
+<body>
+<div class="container border-bottom">
+    <div class="row">
+        <div class="col">
+        <h3 class="text-center">CRUD Operations</h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-3 card mt-2">
+            <form action="/contactentry/" method="post">
+          {% csrf_token %}  
+            <h5 class="text-center mt-2">Contact Entry</h5>
+            <!--Form Details-->
+            <div class="form-group mt-2">
+                <label>Name</label>
+                <input type="text" name="txtName" placeholder="Name" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label>Email</label>
+                <input type="text" name="txtEmail" placeholder="Email" class="form-control">
+            </div>
+             <div class="form-group mt-2">
+                <label>Mobile</label>
+                <input type="text" name="txtMobile" placeholder="Mobile" class="form-control">
+            </div>
+            <input type="submit" value="Enter" class="btn btn-dark w-100 mt-2 mb-2">
+            <!--Form Details-->
+           </form>
+        </div>
+        
+         <div class="col-md-9">
+            <!--Pasted-->
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Operation</th>  
+    </tr>
+  </thead>
+  <tbody>
+     {% for item in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.mobile}}</td>
+      <td><a href="{% url 'editcontact' id=item.id %}">Edit</a>/<a href="{% url 'deletecontact' id=item.id %}">Delete</a></td>
+    </tr>
+     {% endfor %}
+</tbody>
+</table>
+            <!--Pasted-->
+         </div>
+    </div>
+</div>
+</body>
+</html>

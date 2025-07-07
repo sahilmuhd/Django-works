@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2f3640;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #dcdde1;
+            text-align: left;
+        }
+
+        th {
+            background-color: #40739e;
+            color: white;
+        }
+
+        td img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        td form {
+            display: inline-block;
+        }
+
+        button {
+            background-color: #44bd32;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4cd137;
+        }
+
+        form:nth-child(1) button {
+            background-color: #e84118;
+        }
+
+        form:nth-child(1) button:hover {
+            background-color: #c23616;
+        }
+
+        p {
+            text-align: center;
+            color: #888;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>All Submitted Products</h2>
+
+    {% if data %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price (₹)</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        {% for product in data %}
+        <tr>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.product_description }}</td>
+            <td>{{ product.product_price }}</td>
+            <td>{{ product.product_category }}</td>
+            <td>
+                {% if product.product_image %}
+                <img src="{{ product.product_image.url }}" alt="product_image">
+                {% else %}
+                No Image
+                {% endif %}
+            </td>
+            <td>
+                <form action="{% url 'delete_product' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+                <form action="{% url 'edit_product' product.id %}" method="GET">
+                    <button type="submit">Update</button>
+                </form><br>
+                <form action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Add to Cart</button>
+                </form>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No products found.</p>
+    {% endif %}
+</body>
+
+</html>

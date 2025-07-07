@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f2f6;
+            padding: 40px;
+            text-align: center;
+        }
+
+        table {
+            width: 70%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 14px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        th {
+            background-color: #1e90ff;
+            color: white;
+        }
+
+        h2 {
+            color: #2f3542;
+            margin-bottom: 20px;
+        }
+
+        .total {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2ed573;
+        }
+    </style>
+</head>
+<body>
+    <h2>Order Summary</h2>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+            <th>Subtotal (₹)</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.product_name }}</td>
+            <td>{{ item.product.product_price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.item_total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="total">
+        Total Amount: ₹{{ total }}
+    </div>
+</body>
+</html>

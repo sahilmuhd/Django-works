@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authora Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #343a40;
+      color: #fff;
+    }
+    .sidebar a {
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+      color: #fff;
+    }
+    .main {
+      flex: 1;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .card-icon {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar d-flex flex-column p-3">
+    <h4 class="text-center py-3">Authora</h4>
+    <a href="#">Dashboard</a>
+    <a href="#">My Articles</a>
+    <a href="#">Drafts</a>
+    <a href="#">Analytics</a>
+    <a href="#">Comments</a>
+    <a href="#">Settings</a>
+    <a href="/login/">Logout</a>
+  </div>
+
+  <div class="main">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3>Welcome, Author!</h3>
+      <div>
+        <button class="btn btn-primary">New Article</button>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="card-title">Total Articles</h5>
+                <p class="card-text">24</p>
+              </div>
+              <div class="card-icon">📄</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-secondary mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="card-title">Drafts</h5>
+                <p class="card-text">6</p>
+              </div>
+              <div class="card-icon">✍️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="card-title">Views</h5>
+                <p class="card-text">8,431</p>
+              </div>
+              <div class="card-icon">👁️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-danger mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="card-title">Comments</h5>
+                <p class="card-text">127</p>
+              </div>
+              <div class="card-icon">💬</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header">Recent Activity</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Edited "How to Write Effectively" - 2 hours ago</li>
+        <li class="list-group-item">Published "Boost Your Productivity" - 1 day ago</li>
+        <li class="list-group-item">Received 5 new comments - 2 days ago</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

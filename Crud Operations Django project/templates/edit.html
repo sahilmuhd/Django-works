@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="{% static '/bst/css/bootstrap.min.css'%}"/>
+</head>
+<body>
+<div class="container border-bottom">
+    <div class="row">
+        <div class="col">
+        <h3 class="text-center">CRUD Operations</h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-3 card mt-2">
+            <form action="/updatecontact/" method="post">
+          {% csrf_token %}  
+          <input type="hidden" name="txtId" value="{{data.id}}">
+            <h5 class="text-center mt-2">Contact Entry</h5>
+            <!--Form Details-->
+            <div class="form-group mt-2">
+                <label>Name</label>
+                <input type="text" name="txtName" value="{{data.name}}" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label>Email</label>
+                <input type="text" name="txtEmail" value="{{data.email}}" class="form-control">
+            </div>
+             <div class="form-group mt-2">
+                <label>Mobile</label>
+                <input type="text" name="txtMobile" value="{{data.mobile}}" class="form-control">
+            </div>
+            <input type="submit" value="Enter" class="btn btn-dark w-100 mt-2 mb-2">
+            <!--Form Details-->
+           </form>
+        </div>
+        
+         <div class="col-md-9">
+         
+         </div>
+    </div>
+</div>
+</body>
+</html>

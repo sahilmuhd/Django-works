@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitZone Gym</title>
+  <style>
+    :root {
+      --primary-color: #ff4141;
+      --dark-bg: #111;
+      --light-bg: #fff;
+      --accent: #ff8c00;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+
+    header.scrolled {
+      background-color: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1571019613914-85f342c1d4b2?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 6px #000;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.5);
+      padding: 20px 30px;
+      border-radius: 10px;
+      z-index: 2;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 12px;
+      width: 260px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .about {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1579758629936-df1bd7301907?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .about h2, .about p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .contact button {
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: var(--accent);
+    }
+
+    footer {
+      background: var(--dark-bg);
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 40px;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <h1>FitZone Gym</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="home">
+    <h1>Train Hard. Stay Strong.</h1>
+  </div>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Personal Training</h3>
+        <p>Get 1-on-1 guidance from certified professionals.</p>
+      </div>
+      <div class="service-card">
+        <h3>Group Classes</h3>
+        <p>Join Yoga, Zumba, CrossFit and more.</p>
+      </div>
+      <div class="service-card">
+        <h3>Cardio & Strength</h3>
+        <p>Access top-notch gym equipment and machines.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About FitZone</h2>
+    <p>FitZone Gym has been shaping lives since 2010. Our mission is to help you achieve your fitness goals with state-of-the-art facilities and a supportive community.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form method="POST" action="/gym2/" id="contactForm">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FitZone Gym. All rights reserved.</p>
+  </footer>
+
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener("scroll", function () {
+      const header = document.getElementById("header");
+      const btn = document.getElementById("backToTop");
+
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    // Back to Top Button
+    document.getElementById("backToTop").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+</body>
+</html>

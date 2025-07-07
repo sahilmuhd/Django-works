@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>My Skills</h2>
+    <form method="post" action="/list2/">
+        {%csrf_token%}
+        <ul>
+            <li><input type="text" name="skills"> <button type="submit">submit</button> </li>
+        </ul>
+    </form>
+
+
+</body>
+
+</html>

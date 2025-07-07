@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f2f6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2f3542;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #1e90ff;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 15px;
+            color: #2d3436;
+        }
+
+        td img {
+            max-width: 80px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        p {
+            text-align: center;
+            color: #636e72;
+            font-size: 18px;
+            margin-top: 60px;
+        }
+
+        .checkout-btn {
+            background-color: #2ed573;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #26c281;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Your Shopping Cart</h2>
+
+    {% if cart_items %}
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>
+                {% if item.product.product_image %}
+                <img src="{{ item.product.product_image.url }}" alt="Product Image">
+                {% else %}
+                No Image
+                {% endif %}
+            </td>
+            <td>{{ item.product.product_name }}</td>
+            <td>{{ item.product.product_price }}</td>
+            <td>{{ item.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+
+    {% if cart_items %}
+    <div style="text-align: center; margin-top: 30px;">
+        <form action="{% url 'checkout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="checkout-btn">Proceed to Checkout</button>
+        </form>
+    </div>
+    {% endif %}
+
+
+</body>
+
+</html>

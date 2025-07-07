@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px 0;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select:invalid {
+            color: #999;
+        }
+
+        .current-image {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .current-image img {
+            max-width: 100px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Update Product</h2>
+        <form method="POST" action="{% url 'update_product' data.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="product_name" value="{{ data.product_name }}" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="product_description" rows="4" required>{{ data.product_description }}</textarea>
+
+            <label for="price">Price (₹):</label>
+            <input type="number" id="price" name="product_price" value="{{ data.product_price }}" min="0" step="0.01" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="product_category" required>
+                <option value="" disabled>Select Category</option>
+                <option value="electronics" {% if data.product_category == 'electronics' %}selected{% endif %}>Electronics</option>
+                <option value="clothing" {% if data.product_category == 'clothing' %}selected{% endif %}>Clothing</option>
+                <option value="books" {% if data.product_category == 'books' %}selected{% endif %}>Books</option>
+                <option value="home" {% if data.product_category == 'home' %}selected{% endif %}>Home</option>
+            </select>
+
+            <label for="image">Upload New Image (optional):</label>
+            <input type="file" name="product_image" accept="image/*">
+
+            {% if data.product_image %}
+            <div class="current-image">
+                <p>Current Image:</p>
+                <img src="{{ data.product_image.url }}" width="100">
+            </div>
+            {% endif %}
+            <button type="submit">Update Product</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

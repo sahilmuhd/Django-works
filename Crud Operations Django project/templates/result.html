@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+
+<body>
+    <h2>Product Submitted</h2>
+
+    <p>Name: {{ product_name }}</p>
+    <p>Description: {{ product_description }}</p>
+    <p>Price: ₹{{ product_price }}</p>
+    <p>Category: {{ product_category }}</p>
+
+    <!-- A form with a GET action to another view (e.g., product3) -->
+    <form action="/product3/" method="post">
+        <button type="submit">View</button>
+    </form>
+</body>
+
+</html>

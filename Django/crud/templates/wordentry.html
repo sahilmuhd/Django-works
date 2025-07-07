@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form method="post" action="/index3/">
+    <p align="center">
+        <input type="text" id="txtWord" name="text"  placeholder="Enter Word">
+        <input type="button" id="btn1" name="button" value="Ok">
+    </p>
+    </form>
+    <script>
+        $('#btn1').click(function (){
+            var s=$('#txtWord').val();
+
+            $.ajax({
+                url:'/entry2/'+s,
+                method: 'GET',
+                success:function(data){
+                    alert(data);
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
