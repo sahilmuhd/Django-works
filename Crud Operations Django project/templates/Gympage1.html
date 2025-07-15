@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FitZone Gym</title>
   <style>
     :root {
@@ -41,7 +42,7 @@
 
     header.scrolled {
       background-color: rgba(0, 0, 0, 0.85);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
 
     nav {
@@ -75,16 +76,17 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
     .hero h1 {
       font-size: 3rem;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       padding: 20px 30px;
       border-radius: 10px;
       z-index: 2;
@@ -92,8 +94,13 @@
     }
 
     @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     section {
@@ -113,13 +120,13 @@
       padding: 30px 20px;
       border-radius: 12px;
       width: 260px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .about {
@@ -131,14 +138,15 @@
     .about::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
       z-index: 1;
     }
 
-    .about h2, .about p {
+    .about h2,
+    .about p {
       position: relative;
       z-index: 2;
     }
@@ -148,7 +156,8 @@
       margin: auto;
     }
 
-    .contact input, .contact textarea {
+    .contact input,
+    .contact textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -190,32 +199,57 @@
       font-size: 18px;
       display: none;
       cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
+  .hero h1 {
+    font-size: 2rem;
+  }
 
-      .services {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Move this outside so it's always applied */
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.nav-image img {
+  height: 50%;
+  width: 50%;
+  object-fit: contain;
+}
+
   </style>
 </head>
+
 <body>
 
+
   <header id="header">
-    <h1>FitZone Gym</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="nav-wrapper">
+      <h1>FitZone Gym</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-image">
+        <img src="/media/Gym_images/b3.png" alt="Gym Logo">
+      </div>
+    </div>
   </header>
+
 
   <div class="hero" id="home">
     <h1>Train Hard. Stay Strong.</h1>
@@ -241,7 +275,8 @@
 
   <section id="about" class="about">
     <h2>About FitZone</h2>
-    <p>FitZone Gym has been shaping lives since 2010. Our mission is to help you achieve your fitness goals with state-of-the-art facilities and a supportive community.</p>
+    <p>FitZone Gym has been shaping lives since 2010. Our mission is to help you achieve your fitness goals with
+      state-of-the-art facilities and a supportive community.</p>
   </section>
 
   <section id="contact" class="contact">
@@ -283,4 +318,5 @@
   </script>
 
 </body>
+
 </html>

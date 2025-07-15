@@ -26,7 +26,8 @@ urlpatterns = [
     path('test/',include('s1.urls')),
     path('',include('dictionary.urls')),
     path('',include('product.urls')),
-    path('',include('Gym.urls'))
+    path('',include('Gym.urls')),
+    path('',include('s1.urls')),
 ]
 
 if settings.DEBUG:
