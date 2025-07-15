@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | FitZone Gym</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+    }
+
+    h1 {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px 20px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      text-align: center;
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>FitZone Gym</h2>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'service' %}">Services</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+  </header>
+
+  <h1>Our Services</h1>
+
+  <div class="services-container">
+    <div class="service-card">
+      <h3>Personal Training</h3>
+      <p>Get 1-on-1 guidance from certified professionals to reach your fitness goals effectively.</p>
+    </div>
+    <div class="service-card">
+      <h3>Group Classes</h3>
+      <p>Join high-energy sessions like Yoga, Zumba, CrossFit, and more in a motivating environment.</p>
+    </div>
+    <div class="service-card">
+      <h3>Cardio & Strength</h3>
+      <p>Train with top-notch gym equipment for both cardio and strength training routines.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 FitZone Gym. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

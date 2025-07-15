@@ -2,25 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thank You</title>
+  <title>Thank You | FitZone Gym</title>
   <style>
     body {
       background-color: #f0fff0;
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
       padding: 80px;
     }
+
     .box {
       background: #fff;
       padding: 40px;
       margin: auto;
-      width: 400px;
+      width: 90%;
+      max-width: 400px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
+
     h1 {
       color: green;
+      font-size: 2rem;
     }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+
     a {
       display: inline-block;
       margin-top: 20px;
@@ -29,7 +39,9 @@
       background: #007bff;
       padding: 10px 20px;
       border-radius: 6px;
+      transition: background 0.3s ease;
     }
+
     a:hover {
       background: #0056b3;
     }
@@ -39,7 +51,7 @@
   <div class="box">
     <h1>Thank you, {{ name }}!</h1>
     <p>Your message has been received successfully.</p>
-    <a href="/Gym/">Back to Home</a>
+    <a href="{% url 'home' %}">Back to Home</a>
   </div>
 </body>
 </html>

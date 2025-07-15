@@ -20,13 +20,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-urlpatterns = [
+urlpatterns = [ 
     path('admin/', admin.site.urls),
     path('',include('crud1.urls')),
     path('test/',include('s1.urls')),
     path('',include('dictionary.urls')),
     path('',include('product.urls')),
-    path('',include('Gym.urls')),
+    path('Gym/', include('Gym.urls')),
     path('',include('s1.urls')),
 ]
 

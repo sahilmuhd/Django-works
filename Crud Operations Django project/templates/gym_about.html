@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | FitZone Gym</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+    }
+
+    .about {
+      background: url('https://images.unsplash.com/photo-1579758629936-df1bd7301907?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .about h2, .about p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>FitZone Gym</h2>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'service' %}">Services</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="about">
+    <h2>About FitZone</h2>
+    <p>
+      FitZone Gym has been shaping lives since 2010. Our mission is to help you achieve your fitness goals with
+      state-of-the-art facilities, certified trainers, and a positive, encouraging community that supports you every step of the way.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FitZone Gym. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
